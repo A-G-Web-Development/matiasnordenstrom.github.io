@@ -1,0 +1,51 @@
+.container-wa .floating-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 35px;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px #666;
+}
+.container-wa .floating-button:hover {
+  background-color: #1fad53;
+}
+.container-wa .floating-button .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  line-height: 60px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.container-wa .floating-button .icon.wa {
+  animation: wa-out 0.3s;
+}
+
+
+/* @keyframes wa-in {
+  from {
+    opacity: 1;
+    transform: rotateZ(0deg);
+ }
+  to {
+    opacity: 0;
+    transform: rotateZ(180deg);
+ }
+} */
+@keyframes wa-out {
+  from {
+    opacity: 0;
+    transform: rotateZ(180deg);
+ }
+  to {
+    opacity: 1;
+    transform: rotateZ(0deg);
+ }
+}
