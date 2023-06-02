@@ -1,3 +1,7 @@
+#titulo {
+  font-family: "PT Serif", serif;
+}
+
 .container-wa .floating-button {
   position: fixed;
   bottom: 40px;
@@ -28,7 +32,6 @@
   animation: wa-out 0.3s;
 }
 
-
 /* @keyframes wa-in {
   from {
     opacity: 1;
@@ -43,9 +46,9 @@
   from {
     opacity: 0;
     transform: rotateZ(180deg);
- }
+  }
   to {
     opacity: 1;
     transform: rotateZ(0deg);
- }
+  }
 }
