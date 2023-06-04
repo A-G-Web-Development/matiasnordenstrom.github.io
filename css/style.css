@@ -17,3 +17,7 @@
 .text-gold{
     color: var(--main-gold);
 }
+
+.width-servicios{
+    max-width: 300px;
+}
