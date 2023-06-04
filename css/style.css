@@ -1,31 +1,35 @@
 @import url('whatsapp-button.css');
 
-:root{
+:root {
     --main-dark: #161817;
     --main-gold: #D4A067;
     /* dorado mas claro DDAC7A */
 }
 
 #titulo {
-  font-family: "PT Serif", serif;
+    font-family: "PT Serif", serif;
 }
 
-.fondo-dark{
-  background-color: var(--main-dark);
+.fondo-dark {
+    background-color: var(--main-dark);
 }
 
-.text-gold{
+.fondo-gold {
+    background-color: var(--main-gold);
+}
+
+.text-gold {
     color: var(--main-gold);
 }
 
-.width-servicios{
+.width-servicios {
     max-width: 200px;
 }
 
-.list-group .list-group-item{
-  border: none;
+.list-group .list-group-item {
+    border: none;
 }
 
-.h-400{
-  min-height: 400px;
+.h-400 {
+    min-height: 400px;
 }
