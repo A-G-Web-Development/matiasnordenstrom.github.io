@@ -19,5 +19,13 @@
 }
 
 .width-servicios{
-    max-width: 300px;
+    max-width: 200px;
+}
+
+.list-group .list-group-item{
+  border: none;
+}
+
+.h-400{
+  min-height: 400px;
 }
