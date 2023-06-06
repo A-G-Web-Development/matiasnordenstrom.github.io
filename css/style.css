@@ -50,6 +50,7 @@
 nav ul li a {
   color: #fff !important;
   transition: color 0.3s;
+  font-size: 1.1rem !important;
 }
 
 nav ul li a.activo {
