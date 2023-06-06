@@ -37,3 +37,21 @@
 .h-400 {
   min-height: 400px;
 }
+
+#hero{
+  padding-top: 101px;
+}
+
+#nav-principal{
+  position: fixed;
+  z-index: 9999;
+}
+
+nav ul li a {
+  color: #fff !important;
+  transition: color 0.3s;
+}
+
+nav ul li a.activo {
+  color: var(--main-gold) !important;
+}
