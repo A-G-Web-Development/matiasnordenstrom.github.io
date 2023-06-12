@@ -27,18 +27,18 @@ boton.addEventListener("click", function () {
     <li class="list-group-item nuevo" style="background-color: #f4f4f4">
       <i class="bi bi-chevron-double-right pe-2 text-gold"></i>Denuncias y Querellas
     </li>
+    <li class="list-group-item nuevo" style="background-color: #f4f4f4">
+      <button id="boton-cerrar">Cerrar</button>
+    </li>
   `;
-
-  var botonCerrar = document.createElement("button");
-  botonCerrar.textContent = "Cerrar";
+  
+  var botonCerrar = document.querySelector("#boton-cerrar");
   botonCerrar.addEventListener("click", function() {
     var elementosAQuitar = lista.querySelectorAll(".list-group-item.nuevo");
     elementosAQuitar.forEach(function(elemento) {
       elemento.remove();
     });
-    botonCerrar.remove();
+    
     lista.appendChild(botonUl);
   });
-
-  lista.appendChild(botonCerrar);
 })
