@@ -81,7 +81,6 @@ nav ul li a.activo {
 .clickeable {
   cursor: pointer;
   text-decoration: underline;
-  /* color: blue; */
 }
 
 .subrayado-titulo {
