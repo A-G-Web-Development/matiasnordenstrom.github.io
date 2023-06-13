@@ -10,9 +10,11 @@
 html {
   background-color: #292b2d !important;
 }
+
 html {
   color-scheme: dark !important;
 }
+
 html, body, input, textarea, select, button, dialog {
   background-color: #292b2d;
 }
@@ -21,7 +23,7 @@ html, body, input, textarea, select, button, dialog {
   font-family: 'Raleway', sans-serif;
 }
 
-.titulo-grande{
+.titulo-grande {
   font-size: 2.3rem;
 }
 
@@ -49,11 +51,11 @@ html, body, input, textarea, select, button, dialog {
   min-height: 400px;
 }
 
-#hero{
+#hero {
   padding-top: 101px;
 }
 
-#nav-principal{
+#nav-principal {
   position: fixed;
   z-index: 9999;
 }
@@ -68,16 +70,21 @@ nav ul li a.activo {
   color: var(--main-gold) !important;
 }
 
-.boton-dorado{
+.boton-dorado {
   background: var(--main-gold);
 }
 
-.boton-dorado:hover{
+.boton-dorado:hover {
   background-color: var(--main-gold-darker);
 }
 
-.clickeable{
+.clickeable {
   cursor: pointer;
   text-decoration: underline;
   /* color: blue; */
+}
+
+.subrayado-titulo {
+  border-bottom: 2px solid var(--main-gold);
+  width: max-content;
 }
