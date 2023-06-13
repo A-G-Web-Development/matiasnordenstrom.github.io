@@ -3,7 +3,18 @@
 :root {
   --main-dark: #161817;
   --main-gold: #D4A067;
+  --main-gold-darker: #c48138;
   /* dorado mas claro DDAC7A */
+}
+
+html {
+  background-color: #292b2d !important;
+}
+html {
+  color-scheme: dark !important;
+}
+html, body, input, textarea, select, button, dialog {
+  background-color: #292b2d;
 }
 
 .titulo {
@@ -55,4 +66,18 @@ nav ul li a {
 
 nav ul li a.activo {
   color: var(--main-gold) !important;
+}
+
+.boton-dorado{
+  background: var(--main-gold);
+}
+
+.boton-dorado:hover{
+  background-color: var(--main-gold-darker);
+}
+
+.clickeable{
+  cursor: pointer;
+  text-decoration: underline;
+  /* color: blue; */
 }
