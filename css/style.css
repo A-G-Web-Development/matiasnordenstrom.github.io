@@ -87,3 +87,7 @@ nav ul li a.activo {
   border-bottom: 2px solid var(--main-gold);
   width: max-content;
 }
+
+.form-floating .text-white::after{
+  display: none;
+}
