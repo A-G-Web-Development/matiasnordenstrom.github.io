@@ -1,30 +1,29 @@
-// Obtener referencia al formulario
-const form = document.querySelector('#miFormulario');
+// Obtener los elementos del formulario
+const formulario = document.getElementById('formulario');
+const nombreInput = document.getElementById('nombre');
+const emailInput = document.getElementById('email');
+const telefonoInput = document.getElementById('telefono');
+const mensajeInput = document.getElementById('mensaje');
+const correoLink = document.getElementById('boton-submit');
 
-// Agregar un evento de envío al formulario
-form.addEventListener('submit', function(event) {
-  event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+// Agregar el evento submit al formulario
+formulario.addEventListener('submit', function (event) {
+  event.preventDefault(); // Evitar el envío del formulario
 
-  // Obtener los datos del formulario
-  const formData = new FormData(form);
-  const datos = {};
-  formData.forEach((value, key) => {
-    datos[key] = value;
-  });
+  // Obtener los valores de los campos del formulario
+  const nombre = nombreInput.value;
+  const email = emailInput.value;
+  const telefono = telefonoInput.value;
+  const mensaje = mensajeInput.value;
 
-  // Crear el contenido del correo electrónico
-  const correo = {
-    to: 'destinatario@example.com', // Dirección de correo del destinatario
-    subject: 'Nuevo formulario enviado',
-    body: JSON.stringify(datos, null, 2) // Convertir los datos en una cadena JSON formateada
-  };
+  // Construir el enlace del correo electrónico con los valores del formulario
+  const subject = encodeURIComponent('Contacto desde el sitio web');
+  const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono}\nMensaje: ${mensaje}`);
+  const correoHref = `mailto:matias.correanqn@gmail.com?Subject=${subject}&Body=${body}`;
 
-  // Crear una cadena de consulta para el correo electrónico
-  const queryString = Object.keys(correo).map(key => `${key}=${encodeURIComponent(correo[key])}`).join('&');
+  // Actualizar el enlace del correo con los nuevos valores
+  correoLink.href = correoHref;
 
-  // Crear un enlace "mailto" con la cadena de consulta
-  const mailtoLink = `mailto:${correo.to}?${queryString}`;
-
-  // Abrir el enlace de correo electrónico
-  window.location.href = mailtoLink;
+  // Abrir la ventana de correo electrónico
+  window.open(correoHref);
 });
