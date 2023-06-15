@@ -91,3 +91,7 @@ nav ul li a.activo {
 .form-floating .text-white::after{
   display: none;
 }
+
+#redes .nav-link i:hover{
+  color: var(--main-gold);
+}
