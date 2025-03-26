@@ -16,7 +16,7 @@
 .container-wa .floating-button:hover {
   background-color: #1fad53;
 }
-.grecaptcha-badge {
+.rc-anchor {
   display: none !important;
 }
 
