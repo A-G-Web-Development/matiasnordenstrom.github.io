@@ -83,13 +83,23 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!response.ok) {
           throw new Error("Hubo un problema al enviar el correo.");
         } else {
-          alert("Correo electrónico enviado correctamente");
+          Swal.fire({
+            icon: "success",
+            title: "Éxito",
+            text: "El correo se envió correctamente.",
+            showConfirmButton: false,
+            timer: 3000, // La alerta se cerrará automáticamente después de 3 segundos
+          });
         }
       })
       .catch((error) => {
-        alert(
-          "Hubo un problema al enviar el correo. Por favor, inténtalo de nuevo más tarde."
-        );
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Hubo un error al enviar el correo.",
+          showConfirmButton: false,
+          timer: 3000, // La alerta se cerrará automáticamente después de 3 segundos
+        });
       });
 
     // Resetear el formulario después de procesar los datos
