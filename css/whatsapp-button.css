@@ -17,6 +17,9 @@
     background-color: #1fad53;
   }
   
+  .container-wa{
+    z-index: 999999;
+  }
   .container-wa .floating-button .icon {
     position: absolute;
     top: 0;
