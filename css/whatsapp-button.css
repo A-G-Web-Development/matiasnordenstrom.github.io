@@ -17,10 +17,13 @@
   background-color: #1fad53;
 }
 .grecaptcha-badge {
-  bottom: 10px !important;
-  right: 10px !important;
-  left: auto !important;
+  left: 10px !important; /* Posición inicial a la izquierda */
+  right: auto !important; /* Desactiva la alineación a la derecha */
+  bottom: 10px !important; /* Mantiene la distancia desde abajo */
+  transition: transform 0.3s ease-in-out; /* Suaviza el movimiento */
 }
+
+
 
 .container-wa {
   z-index: 999999;
