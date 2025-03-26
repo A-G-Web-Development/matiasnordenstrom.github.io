@@ -1,56 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Obtener el formulario por su ID
   const form = document.getElementById("formulario");
 
-  // Manejar el evento submit del formulario
   form.addEventListener("submit", function (event) {
-    // Prevenir que el formulario se envíe de manera convencional
     event.preventDefault();
 
     grecaptcha.ready(function () {
       grecaptcha
-        .execute("6LdHvAArAAAAACAsTv7MtvLw8a_N0nEODLyBu4Uy", { action: "submit_form" })
-        .then(function (token) {
-          // Verificar token con la API de Google
-          verificarRecaptcha(token);
-        }); 
-    });
-
-    function verificarRecaptcha(token) {
-      fetch("https://www.google.com/recaptcha/api/siteverify", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: `secret=6LdHvAArAAAAAIVhTyeeNQUQZqtfI2XoA9B30Ovk&response=${token}`,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success && data.score > 0.5) {
-            // reCAPTCHA verificado exitosamente, enviar formulario
-            enviarCorreo();
-          } else {
-            // Mostrar error de reCAPTCHA
-            Swal.fire({
-              icon: "error",
-              title: "Verificación fallida",
-              text: "Por favor, intenta nuevamente.",
-              showConfirmButton: false,
-              timer: 3000,
-            });
-          }
+        .execute("6LdHvAArAAAAACAsTv7MtvLw8a_N0nEODLyBu4Uy", {
+          action: "submit_form",
         })
-        .catch((error) => {
-          console.error("Error:", error);
-          Swal.fire({
-            icon: "error",
-            title: "Error de verificación",
-            text: "Hubo un problema al verificar el formulario.",
-            showConfirmButton: false,
-            timer: 3000,
-          });
+        .then(function (token) {
+          // Añadir el token al formulario antes de enviarlo
+          const tokenInput = document.createElement("input");
+          tokenInput.type = "hidden";
+          tokenInput.name = "g-recaptcha-response";
+          tokenInput.value = token;
+          form.appendChild(tokenInput);
+
+          // Continuar con el envío del formulario
+          enviarCorreo();
         });
-    }
+    });
 
     function enviarCorreo() {
       // Obtener los valores de los campos del formulario
@@ -62,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Crear un objeto con los datos del formulario
       const data = {
-        to: "webdevelopment.ag@gmail.com", // Reemplaza con la dirección de correo electrónico del destinatario
+        to: "webdevelopment.ag@gmail.com",
         titulo: "Nuevo mensaje de contacto",
         texto: message + "\n Teléfono: " + telefono,
         subject: "Nuevo mensaje de contacto",
@@ -89,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
               title: "Éxito",
               text: "El correo se envió correctamente.",
               showConfirmButton: false,
-              timer: 3000, // La alerta se cerrará automáticamente después de 3 segundos
+              timer: 3000,
             });
           }
         })
@@ -99,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "Error",
             text: "Hubo un error al enviar el correo.",
             showConfirmButton: false,
-            timer: 3000, // La alerta se cerrará automáticamente después de 3 segundos
+            timer: 3000,
           });
         });
 
