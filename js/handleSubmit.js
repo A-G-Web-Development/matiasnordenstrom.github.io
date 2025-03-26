@@ -7,6 +7,51 @@ document.addEventListener("DOMContentLoaded", function () {
     // Prevenir que el formulario se envíe de manera convencional
     event.preventDefault();
 
+    grecaptcha.ready(function () {
+      grecaptcha
+        .execute("TU_CLAVE_DEL_SITIO", { action: "submit_form" })
+        .then(function (token) {
+          // Verificar token con la API de Google
+          verificarRecaptcha(token);
+        });
+    });
+
+    function verificarRecaptcha(token) {
+      fetch("https://www.google.com/recaptcha/api/siteverify", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `secret=6LdHvAArAAAAAIVhTyeeNQUQZqtfI2XoA9B30Ovk&response=${token}`,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success && data.score > 0.5) {
+            // reCAPTCHA verificado exitosamente, enviar formulario
+            document.getElementById("formulario").submit();
+          } else {
+            // Mostrar error de reCAPTCHA
+            Swal.fire({
+              icon: "error",
+              title: "Verificación fallida",
+              text: "Por favor, intenta nuevamente.",
+              showConfirmButton: false,
+              timer: 3000,
+            });
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          Swal.fire({
+            icon: "error",
+            title: "Error de verificación",
+            text: "Hubo un problema al verificar el formulario.",
+            showConfirmButton: false,
+            timer: 3000,
+          });
+        });
+    }
+
     // Obtener los valores de los campos del formulario
     const formData = new FormData(form);
     const name = formData.get("nombre");
