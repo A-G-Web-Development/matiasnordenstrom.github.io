@@ -16,14 +16,17 @@
 .container-wa .floating-button:hover {
   background-color: #1fad53;
 }
+
 .grecaptcha-badge {
-  left: 10px !important; /* Posición inicial a la izquierda */
-  right: auto !important; /* Desactiva la alineación a la derecha */
-  bottom: 10px !important; /* Mantiene la distancia desde abajo */
-  transition: transform 0.3s ease-in-out; /* Suaviza el movimiento */
+  width: 70px !important;
+  overflow: hidden !important;
+  transition: all 0.3s ease !important;
+  left: -2px !important;
+  bottom: 20px !important;
 }
-
-
+.grecaptcha-badge:hover {
+  width: 256px !important;
+}
 
 .container-wa {
   z-index: 999999;
