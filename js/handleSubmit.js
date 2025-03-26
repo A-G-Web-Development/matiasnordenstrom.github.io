@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     grecaptcha.ready(function () {
       grecaptcha
-        .execute("TU_CLAVE_DEL_SITIO", { action: "submit_form" })
+        .execute("6LdHvAArAAAAACAsTv7MtvLw8a_N0nEODLyBu4Uy", { action: "submit_form" })
         .then(function (token) {
           // Verificar token con la API de Google
           verificarRecaptcha(token);
-        });
+        }); 
     });
 
     function verificarRecaptcha(token) {
