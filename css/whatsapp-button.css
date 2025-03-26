@@ -17,7 +17,15 @@
   background-color: #1fad53;
 }
 .grecaptcha-badge {
-  display: none !important;
+  left: 10px !important; /* Posición inicial a la izquierda */
+  right: auto !important; /* Desactiva la alineación a la derecha */
+  bottom: 10px !important; /* Mantiene la distancia desde abajo */
+  transition: transform 0.3s ease-in-out; /* Suaviza el movimiento */
+}
+
+/* Cuando el mouse pase sobre el icono */
+.grecaptcha-badge:hover {
+  transform: translateX(50px); /* Se mueve hacia la derecha */
 }
 
 .container-wa {
