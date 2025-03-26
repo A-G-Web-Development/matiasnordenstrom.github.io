@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Crear un objeto con los datos del formulario
       const data = {
-        to: "webdevelopment.ag@gmail.com",
+        to: "matias.correanqn@gmail.com",
         titulo: "Nuevo mensaje de contacto",
         texto: message + "\n Teléfono: " + telefono,
         subject: "Nuevo mensaje de contacto",
