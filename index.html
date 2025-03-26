@@ -28,6 +28,8 @@
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+  <script src=""></script>
+
   <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
@@ -421,9 +423,10 @@
         </div>
         <div class="col-12 col-md-6 py-3">
           <h3 class="pb-3 titulo text-white">Envia tu mensaje</h3>
-          <form id="formulario" action="mail.php" method="post">
+          <form id="formulario">
+          <!-- <form id="formulario" action="mail.php" method="post"> -->
             <div class="form-floating mb-3">
-              <input type="text" class="form-control bg-dark text-white" id="nombre" name="nombre" placeholder="Maria" required>
+              <input type="text" class="form-control bg-dark text-white" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
               <label class="text-white" for="nombre">Nombre</label>
             </div>
             <div class="form-floating mb-3">
@@ -527,6 +530,8 @@
       });
     }
   </script>
+
+  <script src="js/handleSubmit.js"></script>
   <script src="js/nav-color.js"></script>
   <script src="js/agregar-items-penal.js"></script>
   <script src="js/animaciones.js"></script>
