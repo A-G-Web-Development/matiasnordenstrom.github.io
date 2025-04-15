@@ -62,7 +62,7 @@
                 <div class="container-fluid">
                     <a class="navbar-brand mx-3 text-white" id="titulo"
                         href="#"><img
-                            src="img/MATÍAS_NORDENSTROM-removebg-preview.png"
+                            src="img/logo-texto.png"
                             width="200"
                             alt></a>
                     <button class="navbar-toggler " type="button"
@@ -832,7 +832,6 @@
         <script>
             grecaptcha.ready(function() {
                 grecaptcha.execute('6LdHvAArAAAAACAsTv7MtvLw8a_N0nEODLyBu4Uy', {action: 'homepage'}).then(function(token) {
-                    console.log("Token del CAPTCHA:", token); // Solo visible en la consola
                     document.getElementById("captchaToken").value = token;
                 });
             });
