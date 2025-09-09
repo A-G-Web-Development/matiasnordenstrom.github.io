@@ -10,60 +10,60 @@ document.addEventListener("DOMContentLoaded", function () {
           action: "submit_form",
         })
         .then(function (token) {
-          // Añadir el token al formulario antes de enviarlo
           const tokenInput = document.createElement("input");
           tokenInput.type = "hidden";
           tokenInput.name = "g-recaptcha-response";
           tokenInput.value = token;
           form.appendChild(tokenInput);
 
-          // Continuar con el envío del formulario
           enviarCorreo();
         });
     });
 
     function enviarCorreo() {
-      // Obtener los valores de los campos del formulario
       const formData = new FormData(form);
       const name = formData.get("nombre");
       const email = formData.get("email");
       const message = formData.get("mensaje");
       const telefono = formData.get("telefono");
 
-      // Crear un objeto con los datos del formulario
-      const data = {
-        to: "matias.correanqn@gmail.com",
-        titulo: "Nuevo mensaje de contacto",
-        texto: message + "\n Teléfono: " + telefono,
-        subject: "Nuevo mensaje de contacto",
-        fromEmail: email,
-        fromNombre: name,
+      // Adaptación al nuevo formato
+      const body = {
+        template: "contacto-generico",
+        origen_name: "estudio-juridico-nordenstrom",
+        campania_name: "contacto",
+        data: {
+          nombre: name,
+          email: email,
+          telefono: telefono,
+          mensaje: message,
+          subject: "Nuevo mensaje de contacto",
+        },
       };
 
-      // Hacer una solicitud POST a tu endpoint con los datos del formulario
-      fetch("https://api.mpconfort.com.ar/api/send-email-externo", {
+      fetch("https://sistemajudi.online/api/api/emails/send", {
         method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(body),
       })
-        .then((response) => {
-          console.log(response);
-          if (!response.ok) {
-            throw new Error("Hubo un problema al enviar el correo.");
-          } else {
-            Swal.fire({
-              icon: "success",
-              title: "Éxito",
-              text: "El correo se envió correctamente.",
-              showConfirmButton: false,
-              timer: 3000,
-            });
-          }
+        .then((response) => response.json())
+        .then((res) => {
+          if (!res.data) throw new Error(res.error || "Error");
+
+          Swal.fire({
+            icon: "success",
+            title: "Éxito",
+            text: "El correo se envió correctamente.",
+            showConfirmButton: false,
+            timer: 3000,
+          });
+          form.reset();
         })
         .catch((error) => {
+          console.error("Error al enviar:", error);
           Swal.fire({
             icon: "error",
             title: "Error",
@@ -72,9 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
             timer: 3000,
           });
         });
-
-      // Resetear el formulario después de procesar los datos
-      form.reset();
     }
   });
 });
